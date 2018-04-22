@@ -10,6 +10,7 @@ namespace t7sOptimizer
 {
     class Optimizer
     {
+        OptConfig optConfig;
         T7sDb t7SDb;
         MyCardDb myCardDb;
         Hashtable cardCache = new Hashtable();
@@ -17,10 +18,11 @@ namespace t7sOptimizer
         CancellationToken cancellationToken;
 
 
-        public Optimizer(T7sDb t7SDb,MyCardDb myCardDb)
+        public Optimizer(OptConfig optConfig,T7sDb t7SDb,MyCardDb myCardDb)
         {
             this.myCardDb =myCardDb;
             this.t7SDb = t7SDb;
+            this.optConfig = optConfig;
 
             var myCardL = (from hc in myCardDb.HoldCard
                           select hc).ToList();
@@ -34,6 +36,19 @@ namespace t7sOptimizer
         {
             Task gATask = Task.Run(() =>
              {
+
+                 List<Unit> units = new List<Unit>(optConfig.Individual);
+
+                 for (int i = 0; i < units.Count; i++)
+                 {
+                     units[i] = new Unit(optConfig.MaxMember);
+                 }
+
+                 List<Task> evalTask = new List<Task>(Environment.ProcessorCount);
+
+                 for(int i = 0; i < optConfig.Iteration; i++)
+                 {
+                 }
                  
              }
             , cancellationToken);
@@ -46,6 +61,13 @@ namespace t7sOptimizer
             {
                 cancellationTokenSource.Cancel();
             }
+        }
+
+
+
+        class EvalTask
+        {
+
         }
     }
 }

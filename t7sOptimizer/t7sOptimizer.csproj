@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Entity\MyCardEntity.cs" />
     <Compile Include="Entity\t7sEntity.cs" />
+    <Compile Include="IdolInstance.cs" />
     <Compile Include="IngWnd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +109,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T7sDb.cs" />
+    <Compile Include="Unit.cs" />
     <EmbeddedResource Include="AddCardInfoWnd.resx">
       <DependentUpon>AddCardInfoWnd.cs</DependentUpon>
     </EmbeddedResource>

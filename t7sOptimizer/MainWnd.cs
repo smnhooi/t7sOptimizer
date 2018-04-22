@@ -71,7 +71,7 @@ namespace t7sOptimizer
         {
             if (OptB.Text == "Optimize")
             {
-                optimizer = new Optimizer(t7SDb,myCardDb);
+                optimizer = new Optimizer(optConfig,t7SDb,myCardDb);
                 OptB.Text = "Cancel";
                 optimizer.run();
 
@@ -86,12 +86,14 @@ namespace t7sOptimizer
 
     class OptConfig
     {
-        int minSparkle;
+        int minSparkle=10;
         int iteration=100;
         int individual=100;
+        int maxMember = 9;
 
         public int MinSparkle { get => minSparkle; set => minSparkle = value; }
         public int Iteration { get => iteration; set => iteration = value; }
         public int Individual { get => individual; set => individual = value; }
+        public int MaxMember { get => maxMember; set => maxMember = value; }
     }
 }
