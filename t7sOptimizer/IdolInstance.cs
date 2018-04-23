@@ -17,6 +17,7 @@ namespace t7sOptimizer
         public IdolInstance(int cardId)
         {
 
+
         }
     }
 }
